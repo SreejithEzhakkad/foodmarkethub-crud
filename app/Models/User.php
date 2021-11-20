@@ -2,16 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Lumen\Auth\Authorizable;
-
-class User extends Model implements AuthenticatableContract, AuthorizableContract
+class User extends Model
 {
-    use Authenticatable, Authorizable, HasFactory;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -19,15 +14,29 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'name', 'email',
+        'first_name',
+        'last_name'
     ];
-
+    
     /**
-     * The attributes excluded from the model's JSON form.
+     * Indicates if the model's ID is auto-incrementing.
      *
-     * @var array
+     * @var bool
      */
-    protected $hidden = [
-        'password',
-    ];
+    public $incrementing = false;
+    
+    /**
+     * The data type of the auto-incrementing ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'string';
+    
+    /**
+     * Get the phones associated with the user.
+     */
+    public function phones()
+    {
+        return $this->hasMany(Phone::class);
+    }
 }
