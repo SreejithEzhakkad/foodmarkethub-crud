@@ -13,7 +13,7 @@ class CreateUserPhonesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_phones', function (Blueprint $table) {
+        Schema::create('phones', function (Blueprint $table) {
             $table->id();
             $table->foreignUuid('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('number', 15);
@@ -29,6 +29,6 @@ class CreateUserPhonesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_phones');
+        Schema::dropIfExists('phones');
     }
 }
