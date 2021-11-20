@@ -16,7 +16,7 @@ class CreateUserPhonesTable extends Migration
         Schema::create('phones', function (Blueprint $table) {
             $table->id();
             $table->foreignUuid('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('number', 15);
+            $table->string('number', 20);
             $table->enum('type', ['mobile', 'home', 'work']);
             $table->timestamps();
         });
