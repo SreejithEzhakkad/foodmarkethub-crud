@@ -133,3 +133,125 @@ Create Property
 
 
 ```
+### Get a Property
+Get a Property
+
+**URL** : `/properties/{id}`
+
+**Method** : `GET`
+
+
+
+**Response example**
+
+```json
+{
+	"data": 
+	{
+		"id": 1,
+		"house_name_number": "Apt No 312",
+		"postcode": "37262",
+		"created_at": "2021-11-21T16:06:07.000000Z",
+		"updated_at": "2021-11-21T16:06:07.000000Z",
+		"owners": [
+		{
+			"id": "a1cc6ffc-b4c4-39f5-b69b-f581d816575d",
+			"first_name": "Hallie",
+			"last_name": "Feil",
+			"created_at": "2021-11-21T16:06:07.000000Z",
+			"updated_at": "2021-11-21T16:06:07.000000Z",
+			"pivot": {
+				"property_id": 1,
+				"user_id": "a1cc6ffc-b4c4-39f5-b69b-f581d816575d",
+				"main_owner": 1
+			},
+			"phones": [
+				{
+					"id": 5,
+					"user_id": "a1cc6ffc-b4c4-39f5-b69b-f581d816575d",
+					"number": "239-574-2131",
+					"type": "home",
+					"created_at": null,
+					"updated_at": null
+				}
+			]
+		}
+	]
+ },
+"message": "Success",
+"success": true
+}```
+
+
+
+```
+
+ 
+### Update Property
+Update a Property
+
+**URL** : `/properties/{id}`
+
+**Method** : `PUT`
+
+**Request Example**
+
+```json
+{
+	"house_name_number":  "Apt No 302",
+	"postcode":  "678631",
+	"owners":  [
+		{
+			"user_id":  "9bbe4b0d-5451-387e-a436-4edddd2d47fb",
+			"main_owner":  true
+		},
+		{
+			"user_id":  "13185b6d-ceb7-3e44-a799-6fe85048f64e",
+			"main_owner":  false
+		},
+	]
+}```
+
+
+
+```
+
+**Response example**
+
+```json
+{
+    "data": {
+        "house_name_number": "Apt No 302",
+        "postcode": "678631",
+        "updated_at": "2021-11-21T11:56:11.000000Z",
+        "created_at": "2021-11-21T11:56:11.000000Z",
+        "id": 5
+    },
+    "message": "Property has been updated successfully!",
+    "success": true
+}```
+
+
+
+```
+### Delete a Property
+Delete a Property
+
+**URL** : `/properties/{id}`
+
+**Method** : `DELETE`
+
+
+
+**Response example**
+
+```json
+{
+	"data":  true,
+	"message":  "Property has been deleted successfully",
+	"success":  true
+}```
+
+
+
+```
