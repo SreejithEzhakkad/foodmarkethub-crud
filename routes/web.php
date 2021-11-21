@@ -16,3 +16,19 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('properties', [
+    'as' => 'properties.index', 'uses' => 'PropertyController@index'
+]);
+$router->post('properties', [
+    'as' => 'properties.store', 'uses' => 'PropertyController@store'
+]);
+$router->get('properties/{id}', [
+    'as' => 'properties.show', 'uses' => 'PropertyController@show'
+]);
+$router->put('properties/{id}', [
+    'as' => 'properties.update', 'uses' => 'PropertyController@update'
+]);
+$router->delete('properties/{id}', [
+    'as' => 'properties.destroy', 'uses' => 'PropertyController@destroy'
+]);
