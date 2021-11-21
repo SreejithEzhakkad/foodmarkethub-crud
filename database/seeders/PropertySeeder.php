@@ -22,7 +22,6 @@ class PropertySeeder extends Seeder
             ->create();
 
         Property::each(function ($property) {
-
             DB::table('property_user')->insert(
                 [
                     'property_id' => $property->id,
@@ -30,8 +29,6 @@ class PropertySeeder extends Seeder
                     'main_owner' => (bool)random_int(0, 1)
                 ]
             );
-            
-           
         });
     }
 }
