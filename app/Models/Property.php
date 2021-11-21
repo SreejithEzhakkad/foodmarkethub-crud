@@ -18,10 +18,10 @@ class Property extends Model
 
 
     /**
-     * Get the phones associated with the user.
+     * Get the owners of with property.
      */
     public function owners()
     {
-        return $this->hasMany(PropertyUser::class);
+        return $this->belongsToMany(User::class)->withPivot('main_owner');
     }
 }

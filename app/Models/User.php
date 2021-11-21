@@ -39,4 +39,12 @@ class User extends Model
     {
         return $this->hasMany(Phone::class);
     }
+
+    /**
+     * Get the properties associated with the user.
+     */
+    public function properties()
+    {
+        return $this->belongsToMany(Property::class);
+    }
 }
